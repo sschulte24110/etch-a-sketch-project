@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -14,3 +22,20 @@ body {
     border: 5px solid black;
 }
 
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.cell {
+    flex: 1;
+    background-color: rgb(163, 159, 159);
+    border: 1px solid white;
+}

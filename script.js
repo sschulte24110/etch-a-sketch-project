@@ -1,15 +1,8 @@
 const gridContainer = document.querySelector('#grid-container');
 const userInput = document.querySelector('.button');
-const ititialGrid = 16;
+const INITIALGRID = 16;
 
-function getRandomColor () {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color +- letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+
 
 function gridGenerator(index) {
     gridContainer.innerHTML = "";
@@ -34,3 +27,25 @@ function gridGenerator(index) {
         });
     });
 }
+gridGenerator(INITIALGRID);
+
+function getRandomColor () {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color +- letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+userInput.addEventListener('click', () => {
+    const userInputValue = prompt('Please select a from 0 to 100.', 'Enter a number');
+    if (userInputValue !==null) {
+        const gridSize = parseInt(userInputValue);
+        if (!isNaN(gridSize) && gridSize > 0) {
+            gridGenerator(gridSize);
+        } else {
+            alert('Please enter a valid positive number.');
+        }
+    }
+});
