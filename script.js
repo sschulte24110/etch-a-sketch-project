@@ -1,8 +1,13 @@
 const gridContainer = document.querySelector('#grid-container');
 const userInput = document.querySelector('.button');
-const INITIALGRID = 16;
+const STARTINGGRID = 16;
 
-
+function getRandomRgbColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
 
 function gridGenerator(index) {
     gridContainer.innerHTML = "";
@@ -23,20 +28,14 @@ function gridGenerator(index) {
 
     hoverEffect.forEach((element) => {
         element.addEventListener('mouseover', () => {
-            element.style.backgroundColor = getRandomColor();
+            const color = getRandomRgbColor();
+            element.style.backgroundColor = color;
         });
     });
 }
-gridGenerator(INITIALGRID);
+gridGenerator(STARTINGGRID);
 
-function getRandomColor () {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color +- letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+
 
 userInput.addEventListener('click', () => {
     const userInputValue = prompt('Please select a from 0 to 100.', 'Enter a number');
